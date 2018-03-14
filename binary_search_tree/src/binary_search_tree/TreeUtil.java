@@ -32,7 +32,14 @@ public class TreeUtil {
 			return true;
 		}
 		else if(tmp.lLink == null) {
-			if(tmp.data)
+			if(tmp.data>num) {
+				tmp.lLink = new Node(num);
+				return true;
+			} else {
+				return add(num, tmp.rLink);
+			}
+		}else if(tmp.rLink == null) {
+			if()
 		}
 	}
 
