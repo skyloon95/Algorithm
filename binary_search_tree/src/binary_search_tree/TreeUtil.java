@@ -17,6 +17,7 @@ public class TreeUtil {
 		else 
 			return true;
 	}
+	
 	public boolean add(int num, Node tmp) {
 		if(root == tmp) {
 			root = new Node(num);

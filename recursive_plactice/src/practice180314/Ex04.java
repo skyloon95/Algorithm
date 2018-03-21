@@ -40,7 +40,11 @@ public class Ex04{
     }
 
     static int search3(int[] a, int value, int start, int end) {
-    		
+    		if(start>end) return -1;
+    		int middle = (start + end) /2;
+    		if(a[middle] == value) return middle;
+    		else if(a[middle] >value) return search3(a, value, start, middle-1);
+    		else return search3(a, value, middle+1, end);
     }
 
     public static void main(String[] args) {
