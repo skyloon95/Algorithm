@@ -1,4 +1,4 @@
-package binary_search_tree;
+package test;
 
 public class Node {
 	public Node left;
@@ -9,20 +9,6 @@ public class Node {
 		this.value = data;
 		this.left = null;
 		this.right = null;
-	}
-	
-	public void print() {
-        if (left != null) left.print();
-        System.out.printf("%d ", value);
-        if (right != null) right.print();
-    }
-	
-	public boolean contains(int value) {
-		if(this.value>value)
-			return left !=null && left.contains(value);
-		else if(this.value<value)
-			return right !=null && right.contains(value);
-		return true;
 	}
 	
 	public void add(int value) {
@@ -39,7 +25,14 @@ public class Node {
 		}
 	}
 	
+	public int getLeftMostValue() {
+//		System.out.printf(" %d", this.value);
+		if(this.left != null) return this.left.getLeftMostValue();
+		return this.value;
+	}
+	
 	public void remove(Node parent, int value) {
+		System.out.printf(" %d", this.value);
 		if(this.value>value) {
 			if(left!=null) left.remove(this, value);
 		} else if(this.value<value) {
@@ -57,8 +50,12 @@ public class Node {
 		}
 	}
 	
-	public int getLeftMostValue() {
-		if(this.left != null) return this.left.getLeftMostValue();
-		return this.value;
+	public static void main(String[] args) {
+		int[] a = {25, 22, 29, 21, 23, 27};
+		Node root = new Node(20);
+		for(int i = 0; i<a.length ; ++i) {
+			root.add(a[i]);
+		}
+		root.remove(null, 25);
 	}
 }
