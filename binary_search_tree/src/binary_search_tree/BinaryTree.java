@@ -23,4 +23,14 @@ public class BinaryTree {
 		root.remove(dummy, value);
 		if(dummy.left != root) root = dummy.left;
 	}
+	
+	public void removeWithoutDummy(int value) {
+		if( root == null) return;
+		if( (value == root.value) && 
+				(root.left==null || root.right==null)) {
+			this.root = (root.left == null) ? root.right : root.left;
+		} else {
+			root.remove(null, value);
+		}
+	}
 }
