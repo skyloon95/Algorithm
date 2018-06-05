@@ -20,6 +20,7 @@ public class FileSystem {
 			BufferedReader buffer = new BufferedReader(new FileReader(txtFile));
 			String line;
 			while((line = buffer.readLine()) != null) {
+				line.trim();
 				buf.append(line).append(" ");
 			}
 		} catch (FileNotFoundException e) {
